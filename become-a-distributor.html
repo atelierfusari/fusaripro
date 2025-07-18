@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+   <title>Become a Distributor</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   <link rel="stylesheet" href="style.css">
+   <script type="text/javascript">
+      function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,it,ru',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+         }, 'google_translate_element');
+      }
+   </script>
+
+   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+   </script>
+</head>
+
+<body>
+   <!-- navbar -->
+   <nav class="bg-white border-b border-gray-200 px-4 py-3 h-[80px] md:h-[125px]">
+      <div class="flex items-center justify-between myContainer h-full">
+         <!-- Menu Button -->
+         <button id="menuBtn"
+            class="flex cursor-pointer items-center space-x-2 text-gray-800 hover:text-gray-600 transition-colors">
+            <div class="md:hidden">
+               <div class="flex flex-col space-y-1">
+                  <div class="w-6 h-0.5 bg-gray-800"></div>
+                  <div class="w-6 h-0.5 bg-gray-800"></div>
+                  <div class="w-6 h-0.5 bg-gray-800"></div>
+               </div>
+            </div>
+            <span class="hidden md:block text-xl tracking-wide">MENU</span>
+            <div class="hidden md:flex flex-col space-y-1">
+               <div class="w-6 h-0.5 bg-gray-800"></div>
+               <div class="w-6 h-0.5 bg-gray-800"></div>
+               <div class="w-6 h-0.5 bg-gray-800"></div>
+            </div>
+         </button>
+
+         <!-- Logo -->
+         <div class="flex items-center justify-center space-x-2">
+            <a href="/" class="logo-container flex items-center justify-center">
+               <img src="./images/logo.avif" alt="logo" class="h-8 md:h-12 logo-default">
+               <img src="./images/logo2.avif" alt="logo" class="h-8 md:h-12 logo-hover">
+            </a>
+         </div>
+
+         <!-- Language Selector - Hidden on Mobile -->
+         <div class="relative">
+            <div id="google_translate_element" style="display: none;"></div>
+
+            <div
+               class="hidden md:flex items-center space-x-1 border border-gray-300 px-3 py-1 hover:bg-gray-50 cursor-pointer language-selector"
+               onclick="toggleLanguageDropdown()">
+               <span class="notranslate text-base font-medium text-gray-800" id="selected-language">
+                  <div class="w-[18px] h-[22px]"></div>
+               </span>
+               <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+               </svg>
+            </div>
+
+            <div
+               class="language-dropdown hidden absolute top-full right-0 mt-1 w-20 bg-white border border-gray-200 rounded shadow-lg z-50">
+               <a id="en" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('en', 'EN'); return false;">EN</a>
+               <a id="fr" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('fr', 'FR'); return false;">FR</a>
+               <a id="it" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('it', 'IT'); return false;">IT</a>
+               <a id="ru" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('ru', 'RU'); return false;">RU</a>
+            </div>
+         </div>
+
+         <!-- Google Translate Script -->
+         <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      </div>
+   </nav>
+
+   <!-- Sidebar -->
+   <div id="sidebar"
+      class="fixed top-0 left-0 h-full w-[75%] md:w-[550px] bg-white shadow-xl transform -translate-x-full transition-transform duration-500 ease-in-out z-50">
+      <div class="p-6 md:p-12">
+         <div class="flex justify-between items-center mb-16">
+            <!-- Close Button -->
+            <button id="closeBtn" class="text-gray-800 hover:text-gray-600">
+               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12"></path>
+               </svg>
+            </button>
+
+            <!-- Language Selector - Shown only on Mobile -->
+            <div class="md:hidden relative">
+               <div class="flex items-center space-x-1 border border-gray-300 px-3 py-1 cursor-pointer"
+                  onclick="toggleMobileLanguageDropdown()">
+                  <span class="notranslate text-base font-medium text-gray-800" id="selected-language-mobile">
+                     <div class="w-[18px] h-[22px]"></div>
+                  </span>
+                  <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+               </div>
+               <div
+                  class="language-dropdown-mobile hidden absolute top-full right-0 mt-1 w-20 bg-white border border-gray-200 rounded shadow-lg z-50">
+                  <a id="en" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('en', 'EN'); return false;">EN</a>
+                  <a id="fr" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('fr', 'FR'); return false;">FR</a>
+                  <a id="it" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('it', 'IT'); return false;">IT</a>
+                  <a id="ru" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('ru', 'RU'); return false;">RU</a>
+               </div>
+            </div>
+         </div>
+
+         <div class="flex items-center">
+            <nav class="space-y-8 mt-12">
+               <a href="./" class="block text-gray-800 text-2xl transition-colors">Home</a>
+               <a href="about-fusari-pro.html" class="block text-gray-800 text-2xl transition-colors">About Fusari Pro</a>
+               <a href="our-products.html" class="block text-gray-800 text-2xl transition-colors">Our Products</a>
+               <a href="become-a-distributor.html" class="block text-gray-800 text-2xl transition-colors">Become a Distributor</a>
+               <a href="contact-us.html" class="block text-gray-800 text-2xl transition-colors">Contact Us</a>
+            </nav>
+         </div>
+      </div>
+   </div>
+
+   <!-- Header -->
+   <section class="relative w-full h-[550px]">
+      <!-- Slider container -->
+      <div class="slider-container relative w-full h-full overflow-hidden">
+         <!-- Slides -->
+         <div class="slides relative w-full h-full">
+
+            <!-- Slide 1 -->
+            <div class="slide absolute w-full h-full opacity-0">
+               <div class="relative w-full h-full">
+                  <img src="./images/distibuitor1.avif" alt="Distributor 1" class="w-full h-full object-cover">
+
+                  <div class="absolute inset-0 flex items-center myContainer">
+                     <div class="text-white">
+                        <h1 class="text-4xl md:text-[45px] font-medium mb-6">Are You Seeking For A Flexible, White Label
+                           Supplier?</h1>
+                        <p class="text-lg md:text-[22px] my-10 font-medium leading-relaxed">Look no further. We expertly
+                           manage a network of 20 OEM
+                           garment factories in China, ready to bring your brand's vision to life. From tailor-made
+                           pieces to large-scale production, we excel in crafting high-end garments.</p>
+                        <a href="/distributorship-form.html">
+                           <button
+                              class="bg-red-600 hover:bg-[#ffffff] cursor-pointer border-1 border-red-600 hover:border-gray-400 mt-5 text-white font-semibold px-6 py-2 transition-colors duration-300">
+                              Start with a Quick Form
+                           </button>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide absolute w-full h-full opacity-0">
+               <div class="relative w-full h-full">
+                  <img src="./images/distibuitor2.avif" alt="Distributor 1" class="w-full h-full object-cover">
+
+                  <div class="absolute inset-0 flex items-center myContainer">
+                     <div class=" text-white">
+                        <h1 class="text-4xl md:text-[45px] font-medium mb-6">Are You Looking To Diversify Your
+                           Product Range?</h1>
+                        <p class="text-lg md:text-[22px] my-10 font-medium leading-relaxed">We provide a complete array
+                           of options with expertise in eight diverse areas: suiting, shirting, cashmere sweaters,
+                           jeans, leather bags, leather shoes, outerwear, and casual jackets.</p>
+                        <a href="/distributorship-form.html">
+                           <button
+                              class="bg-red-600 hover:bg-[#ffffff] cursor-pointer border-1 border-red-600 hover:border-gray-400 mt-5 text-white font-semibold px-6 py-2 transition-colors duration-300">
+                              Start with a Quick Form
+                           </button>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide absolute w-full h-full opacity-0">
+               <div class="relative w-full h-full">
+                  <img src="./images/distibuitor3.avif" alt="Distributor 1" class="w-full h-full object-cover">
+
+                  <div class="absolute inset-0 flex items-center myContainer">
+                     <div class=" text-white">
+                        <h1 class="text-4xl md:text-[45px] font-medium mb-6">Need An Efficient <br>
+                           and Reliable new Partner?
+                           Supplier?</h1>
+                        <p class="text-lg md:text-[22px] my-10 font-medium leading-relaxed">With over 15 years of
+                           experience, we deliver superior quality at competitive prices, beating the efficiencies of
+                           manufacturing in Romania. </p>
+                        <a href="/distributorship-form.html">
+                           <button
+                              class="bg-red-600 hover:bg-[#ffffff] cursor-pointer border-1 border-red-600 hover:border-gray-400 mt-5 text-white font-semibold px-6 py-2 transition-colors duration-300">
+                              Start with a Quick Form
+                           </button>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+
+         <!-- Navigation Arrows -->
+         <button
+            class="absolute hidden md:block  left-20 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-all z-10"
+            onclick="moveSlide(-1)">
+            <svg class="w-15 h-15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 19l-7-7 7-7"></path>
+            </svg>
+         </button>
+         <button
+            class="absolute hidden md:block right-20 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-all z-10"
+            onclick="moveSlide(1)">
+            <svg class="w-15 h-15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"></path>
+            </svg>
+         </button>
+
+         <!-- Dots -->
+         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            <button
+               class="w-1.5 h-1.5 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all dot active"
+               onclick="currentSlide(0)"></button>
+            <button class="w-1.5 h-1.5 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all dot"
+               onclick="currentSlide(1)"></button>
+            <button class="w-1.5 h-1.5 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all dot"
+               onclick="currentSlide(2)"></button>
+         </div>
+      </div>
+   </section>
+
+   <!-- Discover Our Offering Section -->
+   <section class="myContainer">
+      <h2 class="text-left md:text-[38px] text-[28px] mb-6 mt-6 md:mt-20">Discover Our Offering</h2>
+
+      <p class="text-base  md:text-[15px] mb-4">We are here to help brands creator & tailor stores, to bring your
+         designed products to
+         your clients.</p>
+
+      <p class="text-base  md:text-[15px] font-bold">We offer 10 categories of customizable products :</p>
+      <p class="text-base  md:text-[15px] mb-6 font-bold">Suiting, Casual-wear, Outwear, Cashmere Sweaters, Shirting,
+         Jeans & Chinos, Sneakers,
+         Leather shoes, Leather Bags, Accessories</p>
+      <p class="text-base  md:text-[15px] mb-6">We offer full support in every steps including technical assistance,
+         product
+         development, quality control, logistic, to help you succeed in your local market.</p>
+
+      <h2 class="text-left md:text-[38px] text-[28px] mb-4">More In Detail:</h2>
+
+      <ul class="space-y-2 list-disc list-inside text-left mb-6 md:mb-20 text-base  md:text-[15px]">
+         <li class=" leading-tight">24/7 Assistance: Our team is always available to provide round-the-clock support,
+            ensuring that any issues are promptly resolved.</li>
+         <li class=" leading-tight">Quick Delivery: Receive your customized garments delivered directly to your door
+            within
+            just 2-3 weeks for a hassle-free experience.</li>
+         <li class=" leading-tight">Exceptional Quality at Affordable Prices: We deliver outstanding craftsmanship
+            without
+            the premium price tag, giving you remarkable value.</li>
+         <li class=" leading-tight">Diverse Product Range: Choose from a wide variety of products that include the
+            latest
+            seasonal trends, tailored to meet various customer preferences.</li>
+         <li class=" leading-tight">Effortless Management System: Our intuitive system simplifies the management of your
+            activities, helping you stay organized and efficient.</li>
+         <li class=" leading-tight">15 Years of Experience: Leverage our extensive expertise in the industry, providing
+            you
+            with dependable and knowledgeable guidance throughout our collaboration.</li>
+      </ul>
+   </section>
+
+
+   <!--  -->
+   <section class="bg-[#293688] py-20 h-auto">
+      <div class="myContainer text-white">
+
+         <div>
+            <h2 class="text-left md:text-[38px] text-[28px] mb-6">What We Need from You</h2>
+            <ul class="space-y-2 list-disc list-inside text-left text-base  md:text-[15px]">
+               <li class=" leading-tight">Market Insights: Please share detailed data about your local market target,
+                  trends, and customer preferences.</li>
+               <li class=" leading-tight">Business Understanding: We need to understand your business model and specific
+                  needs to tailor the best solutions for you.
+               </li>
+               <li class=" leading-tight">Discovery Meeting: Your availability for a discovery meeting at your earliest
+                  convenience would be greatly appreciated.
+               </li>
+
+            </ul>
+         </div>
+         <div>
+            <h2 class="text-left md:text-[38px] text-[28px] mt-10 mb-6">What You Will Receive From Us</h2>
+            <ul class="space-y-2 list-disc list-inside text-left text-base  md:text-[15px]">
+               <li class=" leading-tight">Comprehensive Product Range: We offer a full suite of quality products
+                  designed to meet your business requirements.
+               </li>
+               <li class=" leading-tight">Training and Support: Receive thorough training on our systems and processes
+                  to ensure a smooth partnership.
+               </li>
+               <li class=" leading-tight">User-Friendly Platform: Gain access to a branded, intuitive platform that
+                  allows you to efficiently manage your orders and client data.
+               </li>
+            </ul>
+         </div>
+
+         <a href="">
+            <button
+               class="bg-red-600 cursor-pointer mt-18 hover:bg-[#ffffff] hover:text-gray-400 border-1 border-red-600 hover:border-gray-400 mt-5 text-white font-bold px-12 py-2 transition-colors duration-300">
+               Book An Online Meeting Now
+            </button>
+         </a>
+      </div>
+   </section>
+
+   <!-- footer -->
+   <footer class="w-full h-[75px] border-t">
+      <div class="myContainer w-full h-full flex items-center justify-between flex-wrap">
+         <div class="text-left md:flex block">
+            <p class="text-[16px] md:text-[12px] my-5 md:my-0">© 2014 Atelier Fusari, all right reserved</p>
+            <a class="md:ml-10 ml-0 text-[16px] md:text-[12px] underline text-left "
+               href="privacy-policy.html">Privacy Policy</a>
+         </div>
+
+         <div class="pb-20 md:pb-0 mt-5 lg:mt-0">
+            <a href="/" class="logo-container">
+               <img class="w-[210px] logo-default" src="./images/logo.avif" alt="">
+            </a>
+         </div>
+      </div>
+   </footer>
+
+   <script src="script.js"></script>
+</body>
+
+</html>
