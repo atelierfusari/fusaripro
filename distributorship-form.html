@@ -7,6 +7,18 @@
    <title>Contact Us</title>
    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
    <link rel="stylesheet" href="style.css">
+   <script type="text/javascript">
+      function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,it,ru',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+         }, 'google_translate_element');
+      }
+   </script>
+
+   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+   </script>
    <style>
       /* Custom checkbox and radio styling */
       input[type="checkbox"],
@@ -70,22 +82,36 @@
          </div>
 
          <!-- Language Selector - Hidden on Mobile -->
+         <!-- Your Custom Language Switcher -->
          <div class="relative">
+            <div id="google_translate_element" style="display: none;"></div>
+
             <div
-               class="hidden md:flex items-center space-x-1 border border-gray-300 px-3 py-1 hover:bg-gray-50 cursor-pointer language-selector">
-               <span class="text-base font-medium text-gray-800">EN</span>
+               class="hidden md:flex items-center space-x-1 border border-gray-300 px-3 py-1 hover:bg-gray-50 cursor-pointer language-selector"
+               onclick="toggleLanguageDropdown()">
+               <span class="notranslate text-base font-medium text-gray-800" id="selected-language">
+                  <div class="w-[18px] h-[22px]"></div>
+               </span>
                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                </svg>
             </div>
+
             <div
-               class="language-dropdown hidden absolute top-full right-0 mt-1 w-20 bg-white border border-gray-200 rounded shadow-lg">
-               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">EN</a>
-               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">FR</a>
-               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">IT</a>
-               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">RU</a>
+               class="language-dropdown hidden absolute top-full right-0 mt-1 w-20 bg-white border border-gray-200 rounded shadow-lg z-50">
+               <a id="en" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('en', 'EN'); return false;">EN</a>
+               <a id="fr" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('fr', 'FR'); return false;">FR</a>
+               <a id="it" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('it', 'IT'); return false;">IT</a>
+               <a id="ru" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onclick="changeLanguage('ru', 'RU'); return false;">RU</a>
             </div>
          </div>
+
+         <!-- Google Translate Script -->
+         <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       </div>
    </nav>
 
@@ -102,11 +128,26 @@
             </button>
 
             <!-- Language Selector - Shown only on Mobile -->
-            <div class="md:hidden flex items-center space-x-1 border border-gray-300 px-3 py-1">
-               <span class="text-base font-medium text-gray-800">EN</span>
-               <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-               </svg>
+            <div class="md:hidden relative">
+               <div
+                  class="flex items-center space-x-1 border border-gray-300 px-3 py-1 hover:bg-gray-50 cursor-pointer"
+                  onclick="toggleMobileLanguageDropdown()">
+                  <span class="notranslate text-base font-medium text-gray-800" id="selected-language-mobile">EN</span>
+                  <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+               </div>
+               <div
+                  class="language-dropdown-mobile hidden absolute top-full right-0 mt-1 w-20 bg-white border border-gray-200 rounded shadow-lg z-50">
+                  <a id="en-mobile" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('en', 'EN'); return false;">EN</a>
+                  <a id="fr-mobile" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('fr', 'FR'); return false;">FR</a>
+                  <a id="it-mobile" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('it', 'IT'); return false;">IT</a>
+                  <a id="ru-mobile" href="#" class="notranslate block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                     onclick="changeLanguage('ru', 'RU'); return false;">RU</a>
+               </div>
             </div>
          </div>
 
@@ -126,7 +167,7 @@
 
    <!-- hero section -->
    <section class="min-h-screen formBg pt-[40px]">
-      <form action="" class="max-w-[600px] mx-auto bg-[#F0EAE0] p-6">
+      <form id="distributorshipForm" class="max-w-[600px] mx-auto bg-[#F0EAE0] p-6">
          <h1 class="font-medium-custom underline mb-5">Business Overview</h1>
          <label class="block text-[15px]" for="store_name">What is the name of your tailor store?</label>
          <input class="bg-[#E8EFF5] w-full p-2 mt-1 focus:outline-none" type="text" id="store_name" name="store_name"
@@ -366,7 +407,7 @@
             or add a new supplier?</label>
          <div class="p-2 mt-1">
             <label class="option-label">
-               <input type="checkbox" id="quality" name="supplier_switch_factors" value="Quality" required>
+               <input type="checkbox" id="quality" name="supplier_switch_factors" value="Quality">
                Quality
             </label>
             <label class="option-label">
@@ -432,8 +473,8 @@
       <div class="myContainer w-full h-full flex items-center justify-between flex-wrap">
          <div class="text-left md:flex block">
             <p class="text-[16px] md:text-[12px] my-5 md:my-0">© 2014 Atelier Fusari, all right reserved</p>
-            <a class="md:ml-10 ml-0 text-[16px] md:text-[12px] underline text-left "
-               href="privacy-policy.html">Privacy Policy</a>
+            <a class="md:ml-10 ml-0 text-[16px] md:text-[12px] underline text-left " href="privacy-policy.html">Privacy
+               Policy</a>
          </div>
 
          <div class="pb-20 md:pb-0 mt-5 lg:mt-0">
@@ -445,6 +486,65 @@
    </footer>
 
    <script src="script.js"></script>
+   <script>
+      document.getElementById('distributorshipForm').addEventListener('submit', async function (e) {
+         e.preventDefault();
+
+         // Show loading state
+         const submitBtn = this.querySelector('button[type="submit"]');
+         const originalText = submitBtn.textContent;
+         submitBtn.textContent = 'Submitting...';
+         submitBtn.disabled = true;
+
+         try {
+            // Gather form data
+            const formData = new FormData(this);
+            const data = {};
+
+            // Convert FormData to object, handling arrays for checkboxes
+            for (let [key, value] of formData.entries()) {
+               if (data[key]) {
+                  // If key already exists, convert to array
+                  if (Array.isArray(data[key])) {
+                     data[key].push(value);
+                  } else {
+                     data[key] = [data[key], value];
+                  }
+               } else {
+                  data[key] = value;
+               }
+            }
+
+            // Send data to server
+            const response = await fetch('https://fusari-backend.onrender.com/submit-distributorship-form', {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(data),
+               credentials: 'include',
+            });
+            const result = await response.json();
+            if (result.success) {
+               // Show success message
+               alert(result.message);
+               // Reset form
+               this.reset();
+            } else {
+               // Show error message
+               alert(result.message || 'Failed to submit form. Please try again.');
+            }
+
+         } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Failed to submit form.try again.');
+         } finally {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+         }
+      });
+   </script>
 </body>
 
 </html>
